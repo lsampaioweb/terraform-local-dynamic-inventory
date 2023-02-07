@@ -1,0 +1,8 @@
+---
+- name: "Playbook that does nothing"
+  hosts: "localhost"
+
+  tasks:
+    - name: "Debug"
+      ansible.builtin.debug:
+        msg: "It worked!"
