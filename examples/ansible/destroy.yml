@@ -5,4 +5,4 @@
   tasks:
     - name: "Debug"
       ansible.builtin.debug:
-        msg: "It worked!"
+        msg: "It destroyed!"
