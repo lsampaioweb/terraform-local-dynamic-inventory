@@ -1,5 +1,5 @@
 module "project" {
-  source = "../.."
+  source = "../../"
 
   for_each = var.test_cases
 

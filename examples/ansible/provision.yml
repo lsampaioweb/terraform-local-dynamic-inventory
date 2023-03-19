@@ -1,8 +1,8 @@
 ---
 - name: "Playbook that does nothing"
-  hosts: "localhost"
+  hosts: "all"
 
   tasks:
     - name: "Debug"
       ansible.builtin.debug:
-        msg: "It provisioned!"
+        msg: "It is provisioned!"
