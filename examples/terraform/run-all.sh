@@ -14,3 +14,5 @@ runningTerraformApply() {
 }
 
 runningTerraformApply $1 01-bare-minimum
+runningTerraformApply $1 02-hosts-list-empty
+runningTerraformApply $1 03-hosts-list-vms
