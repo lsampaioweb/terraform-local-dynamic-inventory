@@ -8,6 +8,7 @@ variable "test_cases" {
     file_permission         = optional(string, "0644")
     hosts_list              = optional(list(map(any)), [{}])
     playbook_provision      = optional(string, "provision.yml")
+    playbook_destroy        = optional(string, "destroy.yml")
 
     expected = string
   }))

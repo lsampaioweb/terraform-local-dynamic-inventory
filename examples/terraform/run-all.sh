@@ -7,7 +7,7 @@ set -e # Abort if there is an issue with any build.
 
 runningTerraformApply() {
   echo "Running $1 $2"
-  
+
   ./tf.sh $1 $2 -auto-approve
 
   echo ""
@@ -15,4 +15,6 @@ runningTerraformApply() {
 
 runningTerraformApply $1 01-bare-minimum
 runningTerraformApply $1 02-hosts-list-empty
-runningTerraformApply $1 03-hosts-list-vms
+runningTerraformApply $1 03-hosts-vm
+runningTerraformApply $1 04-hosts-list
+runningTerraformApply $1 05-hosts-list-vms

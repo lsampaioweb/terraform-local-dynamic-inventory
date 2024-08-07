@@ -1,8 +1,10 @@
 ---
 - name: "Playbook that does nothing"
   hosts: "all"
+  gather_facts: false
 
   tasks:
     - name: "Debug"
+      delegate_to: "localhost"
       ansible.builtin.debug:
-        msg: "It is destroyed!"
+        msg: "{{ inventory_hostname }} was destroyed!"

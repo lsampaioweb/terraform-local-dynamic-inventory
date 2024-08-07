@@ -40,9 +40,8 @@ variable "playbook_provision" {
   default     = "provision.yml"
 }
 
-# TODO: Find a way to make this work.
-# variable "playbook_destroy" {
-#   description = "Name of the playbook that will be executed during the destruction of the VM. Defaults to 'destroy.yml'."
-#   type        = string
-#   default     = "destroy.yml"
-# }
+variable "playbook_destroy" {
+  description = "Name of the playbook that will be executed during the destruction of the VM. Defaults to 'destroy.yml'."
+  type        = string
+  default     = "destroy.yml"
+}

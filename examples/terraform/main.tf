@@ -10,4 +10,5 @@ module "project" {
   file_permission         = each.value.file_permission
   hosts_list              = each.value.hosts_list
   playbook_provision      = each.value.playbook_provision
+  playbook_destroy        = each.value.playbook_destroy
 }

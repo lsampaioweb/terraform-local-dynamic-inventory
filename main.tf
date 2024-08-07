@@ -8,20 +8,32 @@ resource "local_file" "dynamic_inventory" {
 
   directory_permission = var.directory_permission
   file_permission      = var.file_permission
+}
+
+resource "null_resource" "just_to_use_variables_in_destroy" {
+  triggers = {
+    path_playbook_scripts = var.path_playbook_scripts
+    inventory_file        = var.path_inventory
+    playbook_provision    = var.playbook_provision
+    playbook_destroy      = var.playbook_destroy
+  }
 
   provisioner "local-exec" {
     when = create
 
-    working_dir = var.path_playbook_scripts
+    working_dir = self.triggers.path_playbook_scripts
 
-    command = "ansible-playbook ${var.playbook_provision}"
+    command = "ansible-playbook -i ${self.triggers.inventory_file} ${self.triggers.playbook_provision}"
   }
 
   provisioner "local-exec" {
     when = destroy
 
-    working_dir = "../ansible"
+    working_dir = self.triggers.path_playbook_scripts
 
-    command = "ansible-playbook destroy.yml"
+    command = "ansible-playbook -i ${self.triggers.inventory_file} ${self.triggers.playbook_destroy}"
   }
+
+  # Ensure the destroy playbook runs only after the local_file resource is created.
+  depends_on = [local_file.dynamic_inventory]
 }
