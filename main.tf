@@ -22,8 +22,9 @@ resource "null_resource" "just_to_use_variables_in_destroy" {
     when = create
 
     working_dir = self.triggers.path_playbook_scripts
+    command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ${self.triggers.inventory_file} ${self.triggers.playbook_destroy}"
 
-    command = "ansible-playbook -i ${self.triggers.inventory_file} ${self.triggers.playbook_provision}"
+    # command = "ansible-playbook -i ${self.triggers.inventory_file} ${self.triggers.playbook_provision}"
   }
 
   provisioner "local-exec" {
