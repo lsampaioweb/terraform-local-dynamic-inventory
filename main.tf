@@ -22,8 +22,7 @@ resource "null_resource" "just_to_use_variables_in_destroy" {
     when = create
 
     working_dir = self.triggers.path_playbook_scripts
-
-    command = "ansible-playbook -i ${self.triggers.inventory_file} ${self.triggers.playbook_provision}"
+    command     = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ${self.triggers.inventory_file} ${self.triggers.playbook_destroy}"
   }
 
   provisioner "local-exec" {
@@ -31,7 +30,7 @@ resource "null_resource" "just_to_use_variables_in_destroy" {
 
     working_dir = self.triggers.path_playbook_scripts
 
-    command = "ansible-playbook -i ${self.triggers.inventory_file} ${self.triggers.playbook_destroy}"
+    command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ${self.triggers.inventory_file} ${self.triggers.playbook_destroy}"
   }
 
   # Ensure the destroy playbook runs only after the local_file resource is created.
