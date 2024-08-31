@@ -10,7 +10,7 @@ resource "local_file" "dynamic_inventory" {
   file_permission      = var.file_permission
 }
 
-resource "null_resource" "just_to_use_variables_in_destroy" {
+resource "null_resource" "ansible_provision_and_destroy" {
   triggers = {
     path_playbook_scripts = var.path_playbook_scripts
     inventory_file        = var.path_inventory
