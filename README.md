@@ -34,7 +34,7 @@ Run these commands on the computer that is running Terraform:
 1. **Create a release to be imported into other Terraform projects:**
     ```bash
     git tag
-    git tag -a 1.0.3 -m "Release version 1.0.3"
+    git tag -a 1.0.4 -m "Release version 1.0.4"
     git push --tags
     ```
 
