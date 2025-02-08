@@ -3,7 +3,7 @@ terraform {
     local = {
       # https://registry.terraform.io/providers/hashicorp/local/latest
       source  = "hashicorp/local"
-      version = "2.5.1"
+      version = "2.5.2"
     }
   }
 }
