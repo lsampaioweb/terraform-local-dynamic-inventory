@@ -111,7 +111,7 @@ Run these commands on the computer that is running Terraform:
 
     1. Create a new version tag.
         ```bash
-        git tag -a 1.0.4 -m "Release version 1.0.4"
+        git tag -a 1.0.5 -m "Release 1.0.5: Improved scripts, documentation, and environment support"
         ```
 
     1. Push the new tag to the repository.
